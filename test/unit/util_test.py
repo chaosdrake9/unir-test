@@ -22,3 +22,23 @@ class TestUtil(unittest.TestCase):
         self.assertRaises(TypeError, util.convert_to_number, "s")
         self.assertRaises(TypeError, util.convert_to_number, None)
         self.assertRaises(TypeError, util.convert_to_number, object())
+
+    ## Pruebas del metodo check_types caso de fallo
+    def test_check_types_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, util.check_types, "2", 2)
+        self.assertRaises(TypeError, util.check_types, 2, "2")
+        self.assertRaises(TypeError, util.check_types, "2", "2")
+        self.assertRaises(TypeError, util.check_types, None, 2)
+        self.assertRaises(TypeError, util.check_types, 2, None)
+        self.assertRaises(TypeError, util.check_types, object(), 2)
+        self.assertRaises(TypeError, util.check_types, 2, object())
+
+    ## Pruebas del metodo check_type caso de fallo
+    def test_check_type_method_fails_with_nan_parameter(self):
+        self.assertRaises(TypeError, util.check_type, "2")
+        self.assertRaises(TypeError, util.check_type, None)
+        self.assertRaises(TypeError, util.check_type, object())
+
+    ## Pruebas del metodo validate_permissions caso de fallo
+    def test_validate_permissions_method(self):
+        self.assertTrue(util.validate_permissions("oper", "user1"))

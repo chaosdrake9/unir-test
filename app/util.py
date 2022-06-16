@@ -10,15 +10,13 @@ def convert_to_number(operand):
         raise TypeError("Operator cannot be converted to number")
 
 
-def InvalidConvertToNumber(operand):
-    try:
-        if "." in operand:
-            return (float(operand))
+def check_types(x, y):
+        if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
+            raise TypeError("Parameters must be numbers")
 
-        return int(operand)
-
-    except ValueError:
-        raise TypeError("Operator cannot be converted to number")
+def check_type(x):
+        if not isinstance(x, (int, float)):
+            raise TypeError("Parameter must be number")
 
 
 def validate_permissions(operation, user):
